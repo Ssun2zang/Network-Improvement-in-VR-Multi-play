@@ -22,14 +22,14 @@ public class MyGrabInteractable : XRGrabInteractable
         manipulator = GetComponent<MyNetworkBehaviour>();
         rb = GetComponent<Rigidbody>();
         cl = GetComponent<NetworkTransformClient>();
-        nob = GetComponent<NetworkObject>();
+        // nob = GetComponent<NetworkObject>();
     }
 
 
 
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
-        manipulator.changeDiscOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
+        // manipulator.changeDiscOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
         base.OnSelectEntered(interactor);
         // 물체가 잡힐 때 실행되는 코드
 
@@ -67,14 +67,14 @@ public class MyGrabInteractable : XRGrabInteractable
 
         manipulator.SetVelocityAndPositionServerRpc(finalVelocity, finalPosition, finalAngularVelocity, finalRotation);
 
-        manipulator.resetDiscOwnershipServerRpc();
+        // manipulator.resetDiscOwnershipServerRpc();
 
     }
 
-    private void FixedUpdate()
-    {
-        // lastPosition = rb.position;
-        // lastRotation = rb.rotation;
-        //Debug.Log(rb.velocity);
-    }
+    //private void FixedUpdate()
+    //{
+    //    // lastPosition = rb.position;
+    //    // lastRotation = rb.rotation;
+    //    //Debug.Log(rb.velocity);
+    //}
 }
