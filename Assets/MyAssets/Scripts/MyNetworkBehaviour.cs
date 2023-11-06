@@ -23,13 +23,19 @@ public class MyNetworkBehaviour : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void changeDiscOwnershipServerRpc(ulong id)
     {
-        nob.ChangeOwnership(id);
+        if (IsServer)
+        {
+            nob.ChangeOwnership(id);
+        }
     }
 
     [ServerRpc(RequireOwnership = false)]
     public void resetDiscOwnershipServerRpc()
     {
-        nob.RemoveOwnership();
+        if (IsServer)
+        {
+            nob.RemoveOwnership();
+        }
     }
 
     [ServerRpc]
