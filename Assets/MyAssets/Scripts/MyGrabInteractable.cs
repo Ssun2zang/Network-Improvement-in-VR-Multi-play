@@ -29,7 +29,7 @@ public class MyGrabInteractable : XRGrabInteractable
 
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
-        nob.ChangeOwnership(NetworkManager.Singleton.LocalClientId);
+        manipulator.changeDiscOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
         base.OnSelectEntered(interactor);
         // 물체가 잡힐 때 실행되는 코드
 
@@ -67,7 +67,7 @@ public class MyGrabInteractable : XRGrabInteractable
 
         manipulator.SetVelocityAndPositionServerRpc(finalVelocity, finalPosition, finalAngularVelocity, finalRotation);
 
-        nob.RemoveOwnership();
+        manipulator.resetDiscOwnershipServerRpc();
 
     }
 

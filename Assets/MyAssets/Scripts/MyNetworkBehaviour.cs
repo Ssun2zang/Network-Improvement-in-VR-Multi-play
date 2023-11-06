@@ -8,6 +8,7 @@ public class MyNetworkBehaviour : NetworkBehaviour
     //
     public Rigidbody objectRigidbody;
     private NetworkTransformClient cl;
+    private NetworkObject nob;
 
 
     private void Start()
@@ -15,8 +16,21 @@ public class MyNetworkBehaviour : NetworkBehaviour
         // Get the Rigidbody component attached to this object.
         objectRigidbody = GetComponent<Rigidbody>();
         cl = GetComponent<NetworkTransformClient>();
+        nob = GetComponent<NetworkObject>();
     }
 
+
+    [ServerRpc(RequireOwnership = false)]
+    public void changeDiscOwnershipServerRpc(ulong id)
+    {
+        nob.ChangeOwnership(id);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void resetDiscOwnershipServerRpc()
+    {
+        nob.RemoveOwnership();
+    }
 
     [ServerRpc]
     public void SetTransformServerRpc(bool isTrue)
