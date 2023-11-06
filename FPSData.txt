@@ -1,0 +1,33 @@
+FPS: 0.05, SD: 0.00, Frame Time: 20.00 ms
+FPS: 0.01, SD: 156.67, Frame Time: 333.33 ms
+FPS: 0.08, SD: 40.96, Frame Time: 246.73 ms
+FPS: 0.04, SD: 43.07, Frame Time: 3.29 ms
+FPS: 0.40, SD: 2.40, Frame Time: 2.01 ms
+FPS: 0.44, SD: 3.76, Frame Time: 45.04 ms
+FPS: 0.23, SD: 26.79, Frame Time: 314.41 ms
+FPS: 0.43, SD: 1.27, Frame Time: 2.32 ms
+FPS: 0.42, SD: 0.96, Frame Time: 2.27 ms
+FPS: 0.24, SD: 18.30, Frame Time: 2.46 ms
+FPS: 0.06, SD: 64.85, Frame Time: 333.33 ms
+FPS: 0.39, SD: 1.47, Frame Time: 2.24 ms
+FPS: 0.47, SD: 0.21, Frame Time: 2.13 ms
+FPS: 0.45, SD: 0.66, Frame Time: 2.19 ms
+FPS: 0.47, SD: 0.14, Frame Time: 2.05 ms
+FPS: 0.46, SD: 0.22, Frame Time: 1.98 ms
+FPS: 0.47, SD: 0.22, Frame Time: 1.85 ms
+FPS: 0.47, SD: 0.17, Frame Time: 2.00 ms
+FPS: 0.48, SD: 0.16, Frame Time: 2.00 ms
+FPS: 0.11, SD: 46.35, Frame Time: 333.33 ms
+FPS: 0.34, SD: 2.56, Frame Time: 2.55 ms
+FPS: 0.45, SD: 0.31, Frame Time: 2.09 ms
+FPS: 0.33, SD: 6.88, Frame Time: 17.35 ms
+FPS: 0.44, SD: 0.71, Frame Time: 2.71 ms
+FPS: 0.43, SD: 0.62, Frame Time: 2.22 ms
+FPS: 0.42, SD: 0.38, Frame Time: 2.19 ms
+FPS: 0.41, SD: 0.75, Frame Time: 1.90 ms
+FPS: 0.37, SD: 3.05, Frame Time: 1.92 ms
+FPS: 0.47, SD: 0.19, Frame Time: 2.37 ms
+FPS: 0.40, SD: 0.79, Frame Time: 2.16 ms
+FPS: 0.38, SD: 1.34, Frame Time: 2.66 ms
+
+This Headset/Documents
