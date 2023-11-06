@@ -22,12 +22,14 @@ public class MyGrabInteractable : XRGrabInteractable
         manipulator = GetComponent<MyNetworkBehaviour>();
         rb = GetComponent<Rigidbody>();
         cl = GetComponent<NetworkTransformClient>();
+        nob = GetComponent<NetworkObject>();
     }
 
 
 
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
+        nob.ChangeOwnership(NetworkManager.Singleton.LocalClientId);
         base.OnSelectEntered(interactor);
         // 물체가 잡힐 때 실행되는 코드
 
@@ -35,18 +37,25 @@ public class MyGrabInteractable : XRGrabInteractable
         if (cl != null)
         {
             manipulator.SetTransformServerRpc(true);
+            // lastPosition = rb.position;
+            // lastRotation = rb.rotation;
         }
     }
 
     protected override void OnSelectExited(XRBaseInteractor interactor)
     {
         base.OnSelectExited(interactor);
+        // Debug.LogWarning(base.GetAssit() + "assit");
         // 물체가 놓아질 때 실행되는 코드
         Vector3 finalPosition = rb.position;
+        // Vector3 finalVelocity = (finalPosition - lastPosition) / Time.fixedDeltaTime;
         Vector3 finalVelocity = base.GetDetachVelocity();
         Debug.LogWarning(finalVelocity);
 
         Quaternion finalRotation = rb.rotation;
+        
+        // Quaternion deltaRotation = finalRotation * Quaternion.Inverse(lastRotation);
+        // Vector3 finalAngularVelocity = deltaRotation.eulerAngles / Time.fixedDeltaTime;
         Vector3 finalAngularVelocity = base.GetDetachAngularVelocity();
         Debug.LogWarning(finalAngularVelocity);
 
@@ -57,5 +66,15 @@ public class MyGrabInteractable : XRGrabInteractable
         }
 
         manipulator.SetVelocityAndPositionServerRpc(finalVelocity, finalPosition, finalAngularVelocity, finalRotation);
+
+        nob.RemoveOwnership();
+
+    }
+
+    private void FixedUpdate()
+    {
+        // lastPosition = rb.position;
+        // lastRotation = rb.rotation;
+        //Debug.Log(rb.velocity);
     }
 }
