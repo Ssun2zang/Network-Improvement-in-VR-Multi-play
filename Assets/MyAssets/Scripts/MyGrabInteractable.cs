@@ -44,15 +44,18 @@ public class MyGrabInteractable : XRGrabInteractable
 
     protected override void OnSelectExited(XRBaseInteractor interactor)
     {
+        Vector3 finalPosition = rb.position;
+        Quaternion finalRotation = rb.rotation;
+
         base.OnSelectExited(interactor);
         // Debug.LogWarning(base.GetAssit() + "assit");
         // 물체가 놓아질 때 실행되는 코드
-        Vector3 finalPosition = rb.position;
+        
         // Vector3 finalVelocity = (finalPosition - lastPosition) / Time.fixedDeltaTime;
         Vector3 finalVelocity = base.GetDetachVelocity();
         Debug.LogWarning(finalVelocity);
 
-        Quaternion finalRotation = rb.rotation;
+        
         
         // Quaternion deltaRotation = finalRotation * Quaternion.Inverse(lastRotation);
         // Vector3 finalAngularVelocity = deltaRotation.eulerAngles / Time.fixedDeltaTime;
