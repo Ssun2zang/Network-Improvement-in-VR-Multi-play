@@ -36,7 +36,7 @@ public class MyGrabInteractable : XRGrabInteractable
         // NetworkTransformClient 컴포넌트를 활성화
         if (cl != null)
         {
-            manipulator.SetTransformServerRpc(true);
+            manipulator.SetTransformServerRpc(true, rb.position, rb.rotation);
             // lastPosition = rb.position;
             // lastRotation = rb.rotation;
         }
@@ -65,7 +65,7 @@ public class MyGrabInteractable : XRGrabInteractable
         // NetworkTransformClient 컴포넌트를 비활성화
         if (cl != null)
         {
-            manipulator.SetTransformServerRpc(false);
+            manipulator.SetTransformServerRpc(false, rb.position, rb.rotation);
         }
 
         manipulator.SetVelocityAndPositionServerRpc(finalVelocity, finalPosition, finalAngularVelocity, finalRotation);

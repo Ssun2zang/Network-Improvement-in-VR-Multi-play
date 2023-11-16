@@ -39,7 +39,7 @@ public class MyNetworkBehaviour : NetworkBehaviour
     }
 
     [ServerRpc]
-    public void SetTransformServerRpc(bool isTrue)
+    public void SetTransformServerRpc(bool isTrue, Vector3 position, Quaternion rotation)
     {
         if (IsOwner)
         {
@@ -47,16 +47,18 @@ public class MyNetworkBehaviour : NetworkBehaviour
             // Update the networked object's linear velocity, position, and angular velocity on the server.
             cl.enabled = isTrue;
             Debug.LogError("Server Transform");
-            
+            objectRigidbody.position = position;
+            objectRigidbody.rotation = rotation;
+
 
             // Replicate the changes to all clients.
-            UpdateTransformClientRpc(isTrue);
+            UpdateTransformClientRpc(isTrue, position, rotation);
 
         }
     }
 
     [ClientRpc]
-    private void UpdateTransformClientRpc(bool isTrue)
+    private void UpdateTransformClientRpc(bool isTrue, Vector3 position, Quaternion rotation)
     {
         // This method will be called on all clients to update the object's linear velocity, position, and angular velocity.
         // Ensure it's not called on the owner client to avoid double updates.
@@ -65,7 +67,9 @@ public class MyNetworkBehaviour : NetworkBehaviour
             objectRigidbody.isKinematic = true;
             cl.enabled = isTrue;
             Debug.LogError("Client Transform");
-            
+            objectRigidbody.position = position;
+            objectRigidbody.rotation = rotation;
+
         }
     }
 
