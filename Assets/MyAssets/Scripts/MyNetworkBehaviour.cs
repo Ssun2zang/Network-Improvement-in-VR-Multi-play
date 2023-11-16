@@ -43,10 +43,11 @@ public class MyNetworkBehaviour : NetworkBehaviour
     {
         if (IsOwner)
         {
+            objectRigidbody.isKinematic = true;
             // Update the networked object's linear velocity, position, and angular velocity on the server.
             cl.enabled = isTrue;
             Debug.LogError("Server Transform");
-            objectRigidbody.isKinematic = true;
+            
 
             // Replicate the changes to all clients.
             UpdateTransformClientRpc(isTrue);
@@ -61,9 +62,10 @@ public class MyNetworkBehaviour : NetworkBehaviour
         // Ensure it's not called on the owner client to avoid double updates.
         if (!IsOwner)
         {
+            objectRigidbody.isKinematic = true;
             cl.enabled = isTrue;
             Debug.LogError("Client Transform");
-            objectRigidbody.isKinematic = true;
+            
         }
     }
 
@@ -76,9 +78,9 @@ public class MyNetworkBehaviour : NetworkBehaviour
             objectRigidbody.isKinematic = false;
             // Update the networked object's linear velocity, position, and angular velocity on the server.
             objectRigidbody.velocity = linearVelocity;
-            transform.position = position;
+            objectRigidbody.position = position;
             objectRigidbody.angularVelocity = angularVelocity;
-            transform.rotation = rotation;
+            objectRigidbody.rotation = rotation;
             Debug.LogError("Server");
             Debug.Log(linearVelocity+",lv");
             Debug.Log(position);
@@ -99,8 +101,8 @@ public class MyNetworkBehaviour : NetworkBehaviour
             objectRigidbody.isKinematic = false;
             objectRigidbody.velocity = linearVelocity;
             // objectRigidbody.AddForce(linearVelocity, ForceMode.Impulse);
-            transform.position = position;
-            transform.rotation = rotation;
+            objectRigidbody.position = position;
+            objectRigidbody.rotation = rotation;
             objectRigidbody.angularVelocity = angularVelocity;
             //objectRigidbody.AddTorque(angularVelocity, ForceMode.Impulse);
 
