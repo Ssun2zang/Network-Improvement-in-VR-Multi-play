@@ -72,8 +72,12 @@ public class MyNetworkBehaviour : NetworkBehaviour
         // Ensure it's not called on the owner client to avoid double updates.
         if (!IsOwner)
         {
+<<<<<<< Updated upstream
 
             objectRigidbody.isKinematic = true;
+=======
+            //Debug.LogError();
+>>>>>>> Stashed changes
             objectRigidbody.isKinematic = false;
             objectRigidbody.velocity = linearVelocity;
             // objectRigidbody.AddForce(linearVelocity, ForceMode.Impulse);
@@ -83,8 +87,10 @@ public class MyNetworkBehaviour : NetworkBehaviour
             //objectRigidbody.AddTorque(angularVelocity, ForceMode.Impulse);
 
             Debug.LogError("Client");
-            Debug.Log(linearVelocity);
-            Debug.Log(objectRigidbody.velocity);
+            //Debug.Log(linearVelocity);
+            //Debug.Log(objectRigidbody.velocity);
+            Debug.LogError(position);
+            Debug.LogError(transform.position);
             Debug.Log("----");
             //Debug.Log(position);
             //Debug.Log(angularVelocity);

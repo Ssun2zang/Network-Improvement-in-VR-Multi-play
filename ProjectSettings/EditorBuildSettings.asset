@@ -17,6 +17,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Red  cube inf.unity
     guid: e92a648901eafe747808e7e85969c7b3
+<<<<<<< Updated upstream
+=======
+  - enabled: 1
+    path: Assets/Scenes/Blue cube 5.unity
+    guid: e80eb7402515d084ea90c0c6385d9204
+  - enabled: 1
+    path: Assets/Scenes/Red cube.unity
+    guid: 44ede7fb0ba2ed84d8855d553b648621
+>>>>>>> Stashed changes
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7d285062e6bd3428b8791c336dd892b8, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e59941e86e1ea4d9f99de06752a60e40, type: 2}
