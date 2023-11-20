@@ -48,6 +48,8 @@ public class MyNetworkBehaviour : NetworkBehaviour
             cl.enabled = isTrue;
             Debug.LogError("Server Transform");
             objectRigidbody.position = position;
+            Debug.LogError(nob.transform.position);
+            Debug.LogError(position);
             objectRigidbody.rotation = rotation;
 
 

@@ -22,7 +22,7 @@ public class MyGrabInteractable : XRGrabInteractable
         manipulator = GetComponent<MyNetworkBehaviour>();
         rb = GetComponent<Rigidbody>();
         cl = GetComponent<NetworkTransformClient>();
-        // nob = GetComponent<NetworkObject>();
+        nob = GetComponent<NetworkObject>();
     }
 
 
@@ -44,13 +44,17 @@ public class MyGrabInteractable : XRGrabInteractable
 
     protected override void OnSelectExited(XRBaseInteractor interactor)
     {
-        Vector3 finalPosition = rb.position;
-        Quaternion finalRotation = rb.rotation;
+        Vector3 finalPosition = nob.transform.position;
+        Quaternion finalRotation = nob.transform.rotation;
 
         base.OnSelectExited(interactor);
         // Debug.LogWarning(base.GetAssit() + "assit");
         // 물체가 놓아질 때 실행되는 코드
-        
+
+        Debug.LogWarning(rb.position);
+        Debug.LogWarning(nob.transform.position);
+
+
         // Vector3 finalVelocity = (finalPosition - lastPosition) / Time.fixedDeltaTime;
         Vector3 finalVelocity = base.GetDetachVelocity();
         Debug.LogWarning(finalVelocity);
