@@ -69,13 +69,8 @@ public class MyNetworkBehaviour : NetworkBehaviour
             objectRigidbody.isKinematic = true;
             cl.enabled = isTrue;
             Debug.LogError("Client Transform");
-            Debug.LogError(nob.transform.position);
-            Debug.LogError(position);
             objectRigidbody.position = position;
             objectRigidbody.rotation = rotation;
-            Debug.LogError(nob.transform.position);
-            Debug.LogError(position);
-
 
         }
     }
@@ -109,15 +104,23 @@ public class MyNetworkBehaviour : NetworkBehaviour
         // Ensure it's not called on the owner client to avoid double updates.
         if (!IsOwner)
         {
-            objectRigidbody.isKinematic = false;
-            objectRigidbody.velocity = linearVelocity;
-            // objectRigidbody.AddForce(linearVelocity, ForceMode.Impulse);
+            Debug.LogError("Client");
+            Debug.LogError(objectRigidbody.position);
+            Debug.LogError(nob.transform.position);
             objectRigidbody.position = position;
             objectRigidbody.rotation = rotation;
+            objectRigidbody.isKinematic = false;
+            Debug.LogError(objectRigidbody.position);
+            Debug.LogError(nob.transform.position);
+            objectRigidbody.velocity = linearVelocity;
+            // objectRigidbody.AddForce(linearVelocity, ForceMode.Impulse);
+            
             objectRigidbody.angularVelocity = angularVelocity;
             //objectRigidbody.AddTorque(angularVelocity, ForceMode.Impulse);
 
             Debug.LogError("Client");
+            Debug.LogError(objectRigidbody.position);
+            Debug.LogError(nob.transform.position);
             Debug.Log(linearVelocity);
             Debug.Log(objectRigidbody.velocity);
             Debug.Log("----");
