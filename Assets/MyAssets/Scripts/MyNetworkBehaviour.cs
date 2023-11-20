@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using DG.Tweening;
 
 public class MyNetworkBehaviour : NetworkBehaviour
 {
@@ -99,7 +100,9 @@ public class MyNetworkBehaviour : NetworkBehaviour
             objectRigidbody.isKinematic = false;
             objectRigidbody.velocity = linearVelocity;
             // objectRigidbody.AddForce(linearVelocity, ForceMode.Impulse);
-            transform.position = position;
+            Vector3 prePos = transform.position;
+            transform.DOPath(new[] { prePos, position }, 1f, PathType.CubicBezier).SetEase(Ease.Unset);
+            //transform.position = position;
             transform.rotation = rotation;
             objectRigidbody.angularVelocity = angularVelocity;
             //objectRigidbody.AddTorque(angularVelocity, ForceMode.Impulse);
