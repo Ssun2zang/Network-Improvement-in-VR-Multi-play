@@ -69,8 +69,13 @@ public class MyNetworkBehaviour : NetworkBehaviour
             objectRigidbody.isKinematic = true;
             cl.enabled = isTrue;
             Debug.LogError("Client Transform");
+            Debug.LogError(nob.transform.position);
+            Debug.LogError(position);
             objectRigidbody.position = position;
             objectRigidbody.rotation = rotation;
+            Debug.LogError(nob.transform.position);
+            Debug.LogError(position);
+
 
         }
     }
