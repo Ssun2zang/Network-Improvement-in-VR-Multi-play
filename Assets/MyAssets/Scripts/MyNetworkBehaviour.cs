@@ -84,7 +84,7 @@ public class MyNetworkBehaviour : NetworkBehaviour
             objectRigidbody.isKinematic = false;
             // Update the networked object's linear velocity, position, and angular velocity on the server.
             objectRigidbody.velocity = linearVelocity;
-            objectRigidbody.position = position;
+             objectRigidbody.position = position;
             objectRigidbody.angularVelocity = angularVelocity;
             objectRigidbody.rotation = rotation;
             Debug.LogError("Server");
@@ -112,11 +112,11 @@ public class MyNetworkBehaviour : NetworkBehaviour
             objectRigidbody.isKinematic = false;
             Debug.LogError(objectRigidbody.position);
             Debug.LogError(nob.transform.position);
-            objectRigidbody.velocity = linearVelocity;
-            // objectRigidbody.AddForce(linearVelocity, ForceMode.Impulse);
+            // objectRigidbody.velocity = linearVelocity;
+            objectRigidbody.AddForce(linearVelocity, ForceMode.Impulse);
             
-            objectRigidbody.angularVelocity = angularVelocity;
-            //objectRigidbody.AddTorque(angularVelocity, ForceMode.Impulse);
+            // objectRigidbody.angularVelocity = angularVelocity;
+           objectRigidbody.AddTorque(angularVelocity, ForceMode.Impulse);
 
             Debug.LogError("Client");
             Debug.LogError(objectRigidbody.position);
